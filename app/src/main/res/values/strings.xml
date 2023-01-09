@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Testowanie Interfejsu 60+</string>
+    <string name="title">Testy Interfejsu</string>
+
+    <!--ACTIVITY TEXTS-->
+    <string name="icon_quiz">QUIZ IKON</string>
+    <string name="profile">PROFIL</string>
+    <string name="text_adjustment">CZCIONKA</string>
+    <string name="colors">KOLORYSTYKA</string>
+    <string name="gallery_visibility">GALERIA</string>
+    <string name="button_choice">WYBÓR GUZIKA</string>
+    <string name="finish_testing">ZAKOŃCZ TESTY</string>
+    <string name="create_report">GENERUJ RAPORT</string>
+    <string name="close">ZAMKNIJ</string>
+
+    <!--COMMON BUTTON TEXTS-->
+    <string name="send_values">PRZEŚLIJ</string>
+    <string name="cancel">ANULUJ</string>
+
+    <!--IMAGE DESCRIPTIONS-->
+    <string name="polsl_logo">Logo Politechniki Śląskiej</string>
+    <string name="default_image_text">DEFAULT</string>
+
+    <!--ABOUT TEXTS-->
+    <string name="go_back">COFNIJ</string>
+    <string name="sex">Wybierz płeć</string>
+    <string name="sex_m">Mężczyzna</string>
+    <string name="sex_f">Kobieta</string>
+    <string name="age_range">Przedział wiekowy</string>
+    <string name="profile_title">Tworzenie profilu</string>
+    <string name="profile_explanation">Przed przystąpieniem do testów proszę uzupełnić profil.</string>
+
+    <!--ADDITIONAL STRINGS INSIDE TESTS-->
+    <!--ICON QUIZ-->
+    <string name="icon_quiz_title">Quiz Znajomości Ikon</string>
+    <string name="icon_quiz_explanation">Proszę zaznaczyć właściwą odpowiedź przy każdym pytaniu.</string>
+
+    <!--TEXT ADJUSTMENT TEST-->
+    <string name="lorem_ipsum">Android jest systemem operacyjnym na urządzenia mobilne, którego pierwsza wersja została wydana we wrześniu 2008 roku. Obecnie jest to najpopularniejszy system operacyjne na świecie. Najnowsza wersja systemu, czyli Android 13, została wydana w sierpniu 2023 roku.</string>
+    <string name="text_adjust_title">Dostosowanie tekstu</string>
+    <string name="text_adjust_explanation">Proszę za pomocą przycisków + i - dostować wielkość tekstu, aby był dla Państwa czytelny.</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+
+    <!--COLOR PICK-->
+    <string name="colors_title">Wybór kolorystyki</string>
+    <string name="colors_explanation">Proszę wybierać kombinacje kolorów, które najlepiej do siebie pasują.</string>
+    <string name="choice_title">Tytuł</string>
+    <string name="choice_text">Tekst, którego celem jest przedstawienie jaki wpływ ma kolorystyka na jego wyświetlanie.</string>
+    <string name="choice_button">Przycisk</string>
+
+    <!--BUTTON PICKER-->
+    <string name="button_choice_title">Wybór guzika</string>
+    <string name="button_choice_explanation">Proszę wybierać guzik, który Państwu najlepiej odpowiada.</string>
+    <string name="button_text_normal">Przycisk</string>
+    <string name="button_text_bold"><b>Przycisk</b></string>
+</resources>
