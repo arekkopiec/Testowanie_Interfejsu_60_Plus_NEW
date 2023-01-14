@@ -3,6 +3,7 @@ package com.example.testowanieinterfejsu60;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,10 @@ public class makeProfile extends AppCompatActivity
     String ageString;
     char S='K';
     Spinner ageSelect;
+    boolean yes=true;
+
+    public static final String SHARED_PREFERENCE = "sharedPref";
+    public static final String isCreated = "profil";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -78,6 +83,11 @@ public class makeProfile extends AppCompatActivity
 
     void finishProfile() //funkcja przesyłająca dane utworzonego profilu do bazy danych i zamykająca kreator profilu
     {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(isCreated, yes);
+        editor.apply();
+
         ageString = ageSelect.getSelectedItem().toString();
         appDatabase myDB = new appDatabase(makeProfile.this);
         myDB.addProfile(S, ageString);

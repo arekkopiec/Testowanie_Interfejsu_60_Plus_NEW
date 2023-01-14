@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     CardView modifyProfile, iconQuiz,textAdjust,colorPick,buttonPick,finishTesting;
     Button createReport, closeApp;
     public boolean wasAProfileCreated=false;
+
+    public static final String SHARED_PREFERENCE = "sharedPref";
+    public static final String isCreated = "profil";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                wasAProfileCreated=true;
                 openProfile();
             }
         });
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                loadProfileState();
                 if (wasAProfileCreated==true)
                 {
                    openIconQuiz();
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                loadProfileState();
                 if (wasAProfileCreated==true)
                 {
                     openTextAdjustment();
@@ -88,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                loadProfileState();
                 if (wasAProfileCreated==true)
                 {
                     openColorPick();
@@ -105,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                loadProfileState();
                 if (wasAProfileCreated==true)
                 {
                     openButtonPick();
@@ -185,6 +193,11 @@ public class MainActivity extends AppCompatActivity {
 
     void closeApp() //funkcja tworząca okno dialogowe pozwalające na zamknięcie aplikacji lub rezygnacji z zamknięcia. Do zamknięcia aplikacji wykorzystywana jest wbudowana w języku Java funkcja finish()
     {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(isCreated, false);
+        editor.apply();
+
         new AlertDialog.Builder(this)
                 .setTitle("Wyłączyć aplikację?")
                 .setPositiveButton("Tak",(dialogInterface, i) -> finish())
@@ -227,8 +240,17 @@ public class MainActivity extends AppCompatActivity {
 
     void closeProfile() //funkcja ustawiająca informację, że profil nie został utworzony oraz otwierająca okno dialogowe
     {
-        wasAProfileCreated=false;
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(isCreated, false);
+        editor.apply();
+        loadProfileState();
         thankYouMessage();
     }
 
+    void loadProfileState() //funkcja wczytująca obecny stan profilu do zmiennej wasAProfileCreated
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        wasAProfileCreated = sharedPreferences.getBoolean(isCreated, false);
+    }
 }
