@@ -147,43 +147,43 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void openProfile()
+    void openProfile() //funkcja uruchamiająca kreator profilu
     {
         Intent intent=new Intent(MainActivity.this,makeProfile.class);
         startActivity(intent);
     }
 
-    void openIconQuiz()
+    void openIconQuiz() //funkcja uruchamiająca test “Quiz Ikon”
     {
         Intent intent=new Intent(MainActivity.this,iconQuiz.class);
         startActivity(intent);
     }
 
-    void openTextAdjustment()
+    void openTextAdjustment() //funkcja uruchamiająca test “Dostosowywanie Czcionki”
     {
         Intent intent=new Intent(MainActivity.this,textAdjustment.class);
         startActivity(intent);
     }
 
-    void openColorPick()
+    void openColorPick() //funkcja uruchamiająca test “Kolorystyka”
     {
         Intent intent=new Intent(MainActivity.this,colorPick.class);
         startActivity(intent);
     }
 
-    void openButtonPick()
+    void openButtonPick() //funkcja uruchamiająca test “Wybór Przycisku”
     {
         Intent intent=new Intent(MainActivity.this,buttonPick.class);
         startActivity(intent);
     }
 
-    void generateReportFromDatabase()
+    void generateReportFromDatabase() //funkcja tworząca nową zmienną typu appDatabase do obsługi danych zapisanych w bazie  danych oraz wywołanie wewnętrznej funkcji  do tworzenia raportu z bazy danych
     {
         appDatabase myDB = new appDatabase(MainActivity.this);
         myDB.generateReportFromDB();
     }
 
-    void closeApp()
+    void closeApp() //funkcja tworząca okno dialogowe pozwalające na zamknięcie aplikacji lub rezygnacji z zamknięcia. Do zamknięcia aplikacji wykorzystywana jest wbudowana w języku Java funkcja finish()
     {
         new AlertDialog.Builder(this)
                 .setTitle("Wyłączyć aplikację?")
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    void instructionMessage()
+    void instructionMessage() //funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem do zamknięcia okna
     {
         new AlertDialog.Builder(this)
                 .setTitle("Przebieg testowania")
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    void noProfileCreated()
+    void noProfileCreated() //funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem otwierającym okno kreatora profilu
     {
         new AlertDialog.Builder(this)
                 .setTitle("Nie stworzono profilu!")
@@ -209,14 +209,14 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    void forcedProfile()
+    void forcedProfile() //funkcja uruchamiająca kreator profilu
     {
         wasAProfileCreated=true;
         Intent intent=new Intent(MainActivity.this,makeProfile.class);
         startActivity(intent);
     }
 
-    void thankYouMessage()
+    void thankYouMessage() //funkcja tworząca okno dialogowe z wiadomością tekstową z przyciskiem wywołującym kolejne okno dialogowe z wiadomością tekstową
     {
         new AlertDialog.Builder(this)
                 .setTitle("Dziękujęmy za wykonanie testów")
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    void closeProfile()
+    void closeProfile() //funkcja ustawiająca informację, że profil nie został utworzony oraz otwierająca okno dialogowe
     {
         wasAProfileCreated=false;
         thankYouMessage();

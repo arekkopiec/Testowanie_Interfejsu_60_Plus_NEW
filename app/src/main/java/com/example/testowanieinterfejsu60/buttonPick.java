@@ -89,7 +89,7 @@ public class buttonPick extends AppCompatActivity
         });
     }
 
-    void loadNextPair()
+    void loadNextPair() //funkcja, której zadaniem jest przechodzenie i wyświetlenie następnego etapu testu “Wybór Przycisku”
     {
         isSomethingChosen=false;
         switch (currentPair)
@@ -146,7 +146,7 @@ public class buttonPick extends AppCompatActivity
         }
     }
 
-    void finishPick()
+    void finishPick() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Wybór Przycisku”
     {
         appDatabase myDB = new appDatabase(buttonPick.this);
         myDB.addButtonPick(chosenButton[0], chosenButton[1], chosenButton[2], chosenButton[3]);
@@ -158,7 +158,7 @@ public class buttonPick extends AppCompatActivity
                 .show();
     }
 
-    void checkIfChosen()
+    void checkIfChosen() //funkcja sprawdzająca czy użytkownik dokonał wyboru w teście “Wybór Przycisku” i wyświetlająca odpowiedni komunikat jeśli tego nie dokonał
     {
         if(isSomethingChosen==true)
         {
@@ -171,7 +171,7 @@ public class buttonPick extends AppCompatActivity
         }
     }
 
-    void cancelCurrentTest()
+    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Wybór Przycisku” lub rezygnację z zamknięcia
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -184,5 +184,5 @@ public class buttonPick extends AppCompatActivity
     void backToMain()
     {
         finish();
-    }
+    } //funkcja zamykająca test “Wybór Przycisku”
 }

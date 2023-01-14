@@ -101,7 +101,7 @@ public class iconQuiz extends AppCompatActivity
         });
     }
 
-    void loadNextQuestion()
+    void loadNextQuestion() //funkcja wczytująca odpowiedzi i ikonę następnego pytania; jeśli znajduje się na ostatnim pytaniu zamiast tego kończy “Quiz Ikon”
     {
         if (currentQuestion==numberOfQuestions)
         {
@@ -121,7 +121,7 @@ public class iconQuiz extends AppCompatActivity
         currentIcon.setImageResource(iconQuestion.image[currentQuestion]);
     }
 
-    void finishQuiz()
+    void finishQuiz() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
     {
         appDatabase myDB = new appDatabase(iconQuiz.this);
         myDB.addIconQuiz(score, points);
@@ -134,7 +134,7 @@ public class iconQuiz extends AppCompatActivity
                 .show();
     }
 
-    void checkIfChosen()
+    void checkIfChosen() //funkcja sprawdzająca czy została zaznaczona odpowiedź. Jeżeli nie została zaznaczona zostaje wyświetlony odpowiedni komunikat. Jeżeli odpowiedź została zaznaczona sprawdzana jest poprawność odpowiedzi i wyświetlone zostaje właściwy komunikat w oknie dialogowym
     {
         if(isSomethingChosen==true)
         {
@@ -157,7 +157,7 @@ public class iconQuiz extends AppCompatActivity
         }
     }
 
-    void cancelCurrentTest()
+    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Quiz Ikon” lub rezygnację z zamknięcia
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -170,9 +170,9 @@ public class iconQuiz extends AppCompatActivity
     void backToMain()
     {
         finish();
-    }
+    } //funkcja zamykająca “Quiz Ikon”
 
-    void isCorrect()
+    void isCorrect() //funkcja wyświetlająca komunikat o poprawnym zaznaczeniu odpowiedzi z przyciskiem wczytującym następne pytanie w quizie
     {
         new AlertDialog.Builder(this)
                 .setTitle("Wybrano poprawną odpowiedź")
@@ -181,7 +181,7 @@ public class iconQuiz extends AppCompatActivity
                 .show();
     }
 
-    void isNotCorrect()
+    void isNotCorrect() //funkcja wyświetlająca komunikat o niepoprawnym zaznaczeniu odpowiedzi wraz z poprawną odpowiedzią oraz przyciskiem wczytującym następne pytanie w quizie
     {
         new AlertDialog.Builder(this)
                 .setTitle("Wybrano błędną odpowiedź.")

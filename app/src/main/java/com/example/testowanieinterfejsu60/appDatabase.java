@@ -64,7 +64,7 @@ public class appDatabase extends SQLiteOpenHelper
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db)
+    public void onCreate(SQLiteDatabase db) //klasa odziedziczona z SQLiteOpenHelper do tworzenia bazy
     {
         String query_profile =
                 "CREATE TABLE "+ TABLE_NAME_PROFILE +
@@ -116,7 +116,7 @@ public class appDatabase extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1)
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) //klasa odziedziczona z SQLiteOpenHelper do ponownego utworzenia bazy
     {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_PROFILE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_ICON);
@@ -126,7 +126,7 @@ public class appDatabase extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    void addProfile(char sexSymbol, String ageRange)
+    void addProfile(char sexSymbol, String ageRange) //funkcja dodająca do tabeli “profile” w bazie danych nowy wiersz z danymi profilu
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -143,7 +143,7 @@ public class appDatabase extends SQLiteOpenHelper
         }
     }
 
-    void addIconQuiz(int finalScore, int[] q)
+    void addIconQuiz(int finalScore, int[] q) //funkcja dodająca do tabeli “iconQuiz” w bazie danych nowy wiersz z danymi testu “Quiz Ikon” oraz identyfikatorem profilu
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -179,7 +179,7 @@ public class appDatabase extends SQLiteOpenHelper
         }
     }
 
-    void addTextAdjustment(int fontSize)
+    void addTextAdjustment(int fontSize) //funkcja dodająca do tabeli “textAdjustment” w bazie danych nowy wiersz z danymi testu “Dostosowanie Czcionki” oraz identyfikatorem profilu
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -205,7 +205,7 @@ public class appDatabase extends SQLiteOpenHelper
         }
     }
 
-    void addButtonPick(int buttonPair1, int buttonPair2, int buttonPair3, int buttonPair4)
+    void addButtonPick(int buttonPair1, int buttonPair2, int buttonPair3, int buttonPair4) //funkcja dodająca do tabeli “buttonPick” w bazie danych nowy wiersz z danymi testu “Wybór Przycisku”  oraz identyfikatorem profilu
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -234,7 +234,7 @@ public class appDatabase extends SQLiteOpenHelper
         }
     }
 
-    void addColorPick(int colorPair)
+    void addColorPick(int colorPair) //funkcja dodająca do tabeli “colorPick” w bazie danych nowy wiersz z danymi testu “Wybór Kolorystyki”  oraz identyfikatorem profilu
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -260,7 +260,7 @@ public class appDatabase extends SQLiteOpenHelper
         }
     }
 
-    void generateReportFromDB()
+    void generateReportFromDB() //funkcja generująca plik w folderze “Download” w telefonie z danymi pobranymi z bazy danych
     {
          SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyy_HH_mm_ss");
          Date date = new Date();

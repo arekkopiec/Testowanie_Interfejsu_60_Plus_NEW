@@ -99,7 +99,7 @@ public class colorPick extends AppCompatActivity
         });
     }
 
-    void finishPick()
+    void finishPick() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Wybór Kolorystyki”
     {
         appDatabase myDB = new appDatabase(colorPick.this);
         myDB.addColorPick(winnerColor);
@@ -111,7 +111,8 @@ public class colorPick extends AppCompatActivity
                 .show();
     }
 
-    void checkIfChosen()
+    void checkIfChosen() //funkcja sprawdzająca czy użytkownik dokonał wyboru w teście “Wybór Kolorystyki” i wyświetlająca odpowiedni komunikat jeśli tego nie dokonał
+
     {
         if(isSomethingChosen==true && isStageOneOver==false)
         {
@@ -135,7 +136,8 @@ public class colorPick extends AppCompatActivity
         }
     }
 
-    void cancelCurrentTest()
+    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Wybór Kolorystyki” lub rezygnację z zamknięcia
+
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -148,9 +150,9 @@ public class colorPick extends AppCompatActivity
     void backToMain()
     {
         finish();
-    }
+    } //funkcja zamykająca test “Wybór Kolorystyki”
 
-    void fillStartingColors()
+    void fillStartingColors() //funkcja wypełniająca zmienną startingColors identyfikatorami kolorystyk pobranymi z klasy colorPickClass
     {
        int i=0;
        for (int j=0; j<numberOfPairs/2; j++)
@@ -162,7 +164,7 @@ public class colorPick extends AppCompatActivity
        }
     }
 
-    void stageOne()
+    void stageOne() //funkcja odpowiadająca za wyświetlanie par kolorystyk w pierwszym etapie testu “Wybór Kolorystyki”
     {
         if (stageOnePair==numberOfPairs/2)
         {
@@ -192,7 +194,7 @@ public class colorPick extends AppCompatActivity
         buttonB.setTextColor(Color.parseColor(String.valueOf(colorPickClass.colorPairsSecondary[startingColors[stageOnePair][1]])));
     }
 
-    void fillChosenColors()
+    void fillChosenColors() //funkcja wpisująca do tabeli chosenColors[] identyfikatory par kolorystyk wybieranych podczas pierwszego etapu testu “Wybór Kolorystyki”
     {
         if (AorB==1)
         {
@@ -204,7 +206,7 @@ public class colorPick extends AppCompatActivity
         }
     }
 
-    void fillSemiFinalColors()
+    void fillSemiFinalColors() //funkcja wypełniająca dwuwymiarową tabelę semiFinalColors[][]
     {
         int i=0;
         for (int j=0; j<numberOfPairs/4; j++)
@@ -216,7 +218,7 @@ public class colorPick extends AppCompatActivity
         }
     }
 
-    void stageTwo()
+    void stageTwo() //funkcja odpowiadająca za wyświetlanie par kolorystyk w drugim etapie testu “Wybór Kolorystyki”
     {
         if (stageTwoPair==numberOfPairs/4)
         {
@@ -245,7 +247,7 @@ public class colorPick extends AppCompatActivity
         buttonB.setTextColor(Color.parseColor(String.valueOf(colorPickClass.colorPairsSecondary[semiFinalColors[stageTwoPair][1]])));
     }
 
-    void fillFinalColors()
+    void fillFinalColors() //funkcja wypełniająca tablicę identyfikatorami par kolorystyk wybieranych podczas drugiego etapu testu “Wybór Kolorystyki”
     {
         if (AorB==1)
         {
@@ -257,7 +259,7 @@ public class colorPick extends AppCompatActivity
         }
     }
 
-    void finalStage()
+    void finalStage() //funkcja odpowiadająca za wyświetlanie dwóch par kolorystyk w ostatnim etapie testu “Wybór Kolorystyki”
     {
         isSomethingChosen=false;
 
@@ -280,7 +282,7 @@ public class colorPick extends AppCompatActivity
         buttonB.setTextColor(Color.parseColor(String.valueOf(colorPickClass.colorPairsSecondary[finalColors[1]])));
     }
 
-    void declareWinner()
+    void declareWinner() //funkcja zapisująca do zmiennej winnerColor identyfikator pary kolorów wybranej przez użytkownika w ostatnim etapie testu “Wybór Kolorystyki”
     {
         if (AorB==1)
         {

@@ -75,7 +75,7 @@ public class textAdjustment extends AppCompatActivity
         });
     }
 
-    void fontSizeDecrease()
+    void fontSizeDecrease() //funkcja zmniejszająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
     {
         sizeOfText=textToAdjust.getTextSize();
         sizeOfText = sizeOfText-diff;
@@ -86,7 +86,7 @@ public class textAdjustment extends AppCompatActivity
         displaySize.setText(sizeOfTextString);
     }
 
-    void fontSizeIncrease()
+    void fontSizeIncrease() //funkcja zwiększająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
     {
         sizeOfText=textToAdjust.getTextSize();
         sizeOfText = sizeOfText+diff;
@@ -97,7 +97,7 @@ public class textAdjustment extends AppCompatActivity
         displaySize.setText(sizeOfTextString);
     }
 
-    void sendTextAdjust()
+    void sendTextAdjust() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
     {
         appDatabase myDB = new appDatabase(textAdjustment.this);
         myDB.addTextAdjustment(sizeOfTextInt);
@@ -109,7 +109,7 @@ public class textAdjustment extends AppCompatActivity
                 .show();
     }
 
-    void cancelCurrentTest()
+    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Dostosowanie Czcionki” lub rezygnację z zamknięcia
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -122,5 +122,5 @@ public class textAdjustment extends AppCompatActivity
     void backToMain()
     {
         finish();
-    }
+    } //funkcja zamykająca test “Dostosowanie Czcionki”
 }

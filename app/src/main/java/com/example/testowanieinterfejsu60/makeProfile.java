@@ -76,7 +76,7 @@ public class makeProfile extends AppCompatActivity
 
     }
 
-    void finishProfile()
+    void finishProfile() //funkcja przesyłająca dane utworzonego profilu do bazy danych i zamykająca kreator profilu
     {
         ageString = ageSelect.getSelectedItem().toString();
         appDatabase myDB = new appDatabase(makeProfile.this);
@@ -90,7 +90,7 @@ public class makeProfile extends AppCompatActivity
 
     }
 
-    void cancelProfile()
+    void cancelProfile() //funkcja anulująca tworzenie profilu i zamykająca kreator profilu
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować tworzenie profilu?")
@@ -103,5 +103,5 @@ public class makeProfile extends AppCompatActivity
     void backToMain()
     {
         finish();
-    }
+    } //zamknięcie kreatora wywołując wbudowaną w języku Java funkcji do zamykania finish()
 }

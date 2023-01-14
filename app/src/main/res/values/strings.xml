@@ -8,7 +8,7 @@
     <string name="text_adjustment">CZCIONKA</string>
     <string name="colors">KOLORYSTYKA</string>
     <string name="gallery_visibility">GALERIA</string>
-    <string name="button_choice">WYBÓR GUZIKA</string>
+    <string name="button_choice">PRZYCISK</string>
     <string name="finish_testing">ZAKOŃCZ TESTY</string>
     <string name="create_report">GENERUJ RAPORT</string>
     <string name="close">ZAMKNIJ</string>
@@ -37,7 +37,7 @@
 
     <!--TEXT ADJUSTMENT TEST-->
     <string name="lorem_ipsum">Android jest systemem operacyjnym na urządzenia mobilne, którego pierwsza wersja została wydana we wrześniu 2008 roku. Obecnie jest to najpopularniejszy system operacyjne na świecie. Najnowsza wersja systemu, czyli Android 13, została wydana w sierpniu 2023 roku.</string>
-    <string name="text_adjust_title">Dostosowanie tekstu</string>
+    <string name="text_adjust_title">Dostosowanie czcionki</string>
     <string name="text_adjust_explanation">Proszę za pomocą przycisków + i - dostować wielkość tekstu, aby był dla Państwa czytelny.</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
@@ -50,8 +50,8 @@
     <string name="choice_button">Przycisk</string>
 
     <!--BUTTON PICKER-->
-    <string name="button_choice_title">Wybór guzika</string>
-    <string name="button_choice_explanation">Proszę wybierać guzik, który Państwu najlepiej odpowiada.</string>
+    <string name="button_choice_title">Wybór przycisku</string>
+    <string name="button_choice_explanation">Proszę wybierać przycisk, który Państwu najlepiej odpowiada.</string>
     <string name="button_text_normal">Przycisk</string>
     <string name="button_text_bold"><b>Przycisk</b></string>
 </resources>
