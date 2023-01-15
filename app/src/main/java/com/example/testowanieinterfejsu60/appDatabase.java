@@ -276,13 +276,13 @@ public class appDatabase extends SQLiteOpenHelper
         String selectedProfileData;
         String profileList = "Stworzone profile:; \n";
         String profileColumns = COLUMN_ID + ";" + SEX + ";" + AGE_RANGE + ";";
-        String iconQuizText = "Wyniki testów Quizu Ikon:; \n";
+        String iconQuizText = "Wyniki testów 'Quiz Ikon':; \n";
         String iconQuizColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_SCORE + ";" + Q1 + ";" + Q2 + ";" + Q3 + ";" + Q4 + ";" + Q5 + ";" + Q6 + ";" + Q7 + ";" + Q8 + ";" + Q9 + ";" + Q10 + ";" ;
-        String textAdjustText = "Wyniki testów Czcionki:; \n";
+        String textAdjustText = "Wyniki testów 'Dostosowanie Czcionki Czcionki':; \n";
         String textAdjustColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_ADJUSTED_TEXT + ";";
-        String colorPickText = "Wyniki testów Kolorystyki:; \n";
+        String colorPickText = "Wyniki testów 'Wybór Kolorystyki':; \n";
         String colorPickColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_COLOR_PAIR + ";";
-        String buttonPickText = "Wyniki testów Wyboru Guzika:; \n";
+        String buttonPickText = "Wyniki testów 'Wybór Przycisku':; \n";
         String buttonPickColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_BUTTON_PAIR_1 + ";" + COLUMN_BUTTON_PAIR_2 + ";" + COLUMN_BUTTON_PAIR_3 + ";" + COLUMN_BUTTON_PAIR_4 + ";";
         String spaceInBetween = ";";
         String breakALine ="\n";
