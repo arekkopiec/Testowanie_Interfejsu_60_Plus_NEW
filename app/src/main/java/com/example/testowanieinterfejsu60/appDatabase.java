@@ -282,7 +282,7 @@ public class appDatabase extends SQLiteOpenHelper
         String textAdjustColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_ADJUSTED_TEXT + ";";
         String colorPickText = "Wyniki testów Kolorystyki:; \n";
         String colorPickColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_COLOR_PAIR + ";";
-        String buttonPickText = "Wyniki testów Wyybotu Guzika:; \n";
+        String buttonPickText = "Wyniki testów Wyboru Guzika:; \n";
         String buttonPickColumns = COLUMN_ID + ";" + COLUMN_PROFILE_ID + ";" + COLUMN_BUTTON_PAIR_1 + ";" + COLUMN_BUTTON_PAIR_2 + ";" + COLUMN_BUTTON_PAIR_3 + ";" + COLUMN_BUTTON_PAIR_4 + ";";
         String spaceInBetween = ";";
         String breakALine ="\n";
