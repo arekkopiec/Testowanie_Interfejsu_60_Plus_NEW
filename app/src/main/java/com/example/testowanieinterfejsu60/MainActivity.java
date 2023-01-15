@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE},
                 PackageManager.PERMISSION_GRANTED);
 
+        resetOnOpen();
         instructionMessage();
 
         modifyProfile=findViewById(R.id.profile);
@@ -252,5 +253,13 @@ public class MainActivity extends AppCompatActivity {
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
         wasAProfileCreated = sharedPreferences.getBoolean(isCreated, false);
+    }
+
+    void resetOnOpen()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(isCreated, false);
+        editor.apply();
     }
 }

@@ -38,7 +38,7 @@
     <!--TEXT ADJUSTMENT TEST-->
     <string name="lorem_ipsum">Android jest systemem operacyjnym na urządzenia mobilne, którego pierwsza wersja została wydana we wrześniu 2008 roku. Obecnie jest to najpopularniejszy system operacyjne na świecie. Najnowsza wersja systemu, czyli Android 13, została wydana w sierpniu 2023 roku.</string>
     <string name="text_adjust_title">Dostosowanie czcionki</string>
-    <string name="text_adjust_explanation">Proszę za pomocą przycisków + i - dostować wielkość tekstu, aby był dla Państwa czytelny.</string>
+    <string name="text_adjust_explanation">Proszę za pomocą przycisków + i - dostosować wielkość tekstu, aby był dla Państwa czytelny.</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
 
