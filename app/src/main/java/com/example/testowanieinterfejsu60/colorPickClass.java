@@ -1,8 +1,14 @@
 package com.example.testowanieinterfejsu60;
 
+/**
+ * Klasa, która służy do przechowywania danych używanych do przeprowadzania testu “Wybór Kolorystyki”.
+ */
 public class colorPickClass
 {
 
+    /**
+     * tablica jednowymiarowa przechowująca główne kolory kolorystyk w zapisie szesnastkowym
+     */
     public static String colorPairsMain[]=
             {
                     "#00539c","#2f3c7e",
@@ -11,6 +17,9 @@ public class colorPickClass
                     "#2C5F2D","#2BAE66"
             };
 
+    /**
+     * tablica jednowymiarowa przechowująca kolory dopełniające kolorystyk w zapisie szesnastkowym
+     */
     public static String colorPairsSecondary[]=
             {
                     "#eea47f","#f2dadb",

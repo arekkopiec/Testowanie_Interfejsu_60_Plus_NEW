@@ -11,15 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Klasa iconQuiz służy do wyświetlania i przeprowadzania testu “Quiz Ikon”.
+ */
 public class iconQuiz extends AppCompatActivity
 {
     TextView questionText;
     Button answerA,answerB,answerC;
     Button cancelTest, sendValue;
     ImageView currentIcon;
+    /**
+     * zmienna przechowująca wynik quizu
+     */
     int score=0;
     int currentQuestion=0;
     int numberOfQuestions=(iconQuestion.answersCorrect.length);
+    /**
+     * jednowymiarowa tablica zmiennych przechowująca punkty za poszczególne pytania quizu
+     */
     int points[]= new int[numberOfQuestions];
     String chosenAnswer="";
     boolean isSomethingChosen=false;
@@ -101,7 +110,10 @@ public class iconQuiz extends AppCompatActivity
         });
     }
 
-    void loadNextQuestion() //funkcja wczytująca odpowiedzi i ikonę następnego pytania; jeśli znajduje się na ostatnim pytaniu zamiast tego kończy “Quiz Ikon”
+    /**
+     * funkcja wczytująca odpowiedzi i ikonę następnego pytania; jeśli znajduje się na ostatnim pytaniu zamiast tego kończy “Quiz Ikon”
+     */
+    void loadNextQuestion() //
     {
         if (currentQuestion==numberOfQuestions)
         {
@@ -121,6 +133,9 @@ public class iconQuiz extends AppCompatActivity
         currentIcon.setImageResource(iconQuestion.image[currentQuestion]);
     }
 
+    /**
+     * funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
+     */
     void finishQuiz() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
     {
         appDatabase myDB = new appDatabase(iconQuiz.this);
@@ -134,6 +149,9 @@ public class iconQuiz extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * funkcja sprawdzająca czy została zaznaczona odpowiedź. Jeżeli nie została zaznaczona zostaje wyświetlony odpowiedni komunikat. Jeżeli odpowiedź została zaznaczona sprawdzana jest poprawność odpowiedzi i wyświetlone zostaje właściwy komunikat w oknie dialogowym
+     */
     void checkIfChosen() //funkcja sprawdzająca czy została zaznaczona odpowiedź. Jeżeli nie została zaznaczona zostaje wyświetlony odpowiedni komunikat. Jeżeli odpowiedź została zaznaczona sprawdzana jest poprawność odpowiedzi i wyświetlone zostaje właściwy komunikat w oknie dialogowym
     {
         if(isSomethingChosen==true)
@@ -157,7 +175,10 @@ public class iconQuiz extends AppCompatActivity
         }
     }
 
-    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Quiz Ikon” lub rezygnację z zamknięcia
+    /**
+     * funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Quiz Ikon” lub rezygnację z zamknięcia
+     */
+    void cancelCurrentTest() //
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -167,12 +188,18 @@ public class iconQuiz extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * funkcja zamykająca “Quiz Ikon”
+     */
     void backToMain()
     {
         finish();
-    } //funkcja zamykająca “Quiz Ikon”
+    } //
 
-    void isCorrect() //funkcja wyświetlająca komunikat o poprawnym zaznaczeniu odpowiedzi z przyciskiem wczytującym następne pytanie w quizie
+    /**
+     * funkcja wyświetlająca komunikat o poprawnym zaznaczeniu odpowiedzi z przyciskiem wczytującym następne pytanie w quizie
+     */
+    void isCorrect() //
     {
         new AlertDialog.Builder(this)
                 .setTitle("Wybrano poprawną odpowiedź")
@@ -181,6 +208,9 @@ public class iconQuiz extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * funkcja wyświetlająca komunikat o niepoprawnym zaznaczeniu odpowiedzi wraz z poprawną odpowiedzią oraz przyciskiem wczytującym następne pytanie w quizie
+     */
     void isNotCorrect() //funkcja wyświetlająca komunikat o niepoprawnym zaznaczeniu odpowiedzi wraz z poprawną odpowiedzią oraz przyciskiem wczytującym następne pytanie w quizie
     {
         new AlertDialog.Builder(this)

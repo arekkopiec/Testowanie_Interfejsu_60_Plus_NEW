@@ -12,12 +12,21 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+/**
+ * Klasa makeProfile służy do wyświetlania i obsługi kreatora profilu.
+ */
 public class makeProfile extends AppCompatActivity
 {
     RadioGroup radioS;
     RadioButton radioBM, radioBF;
     Button cancelTest, sendValue, chosenSex;
+    /**
+     * zmienna przechowująca przedział wiekowy wybrany przez użytkownika
+     */
     String ageString;
+    /**
+     * zmienna znakowa określająca płeć wybrana przez użytkownika
+     */
     char S='K';
     Spinner ageSelect;
     boolean yes=true;
@@ -76,12 +85,10 @@ public class makeProfile extends AppCompatActivity
         });
     }
 
-    public void checkButton(View v)
-    {
-
-    }
-
-    void finishProfile() //funkcja przesyłająca dane utworzonego profilu do bazy danych i zamykająca kreator profilu
+    /**
+     * funkcja przesyłająca dane utworzonego profilu do bazy danych i zamykająca kreator profilu
+     */
+    void finishProfile() //
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -100,7 +107,10 @@ public class makeProfile extends AppCompatActivity
 
     }
 
-    void cancelProfile() //funkcja anulująca tworzenie profilu i zamykająca kreator profilu
+    /**
+     * funkcja anulująca tworzenie profilu i zamykająca kreator profilu
+     */
+    void cancelProfile() //
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować tworzenie profilu?")
@@ -110,8 +120,11 @@ public class makeProfile extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * zamknięcie kreatora wywołując wbudowaną w języku Java funkcji do zamykania finish()
+     */
     void backToMain()
     {
         finish();
-    } //zamknięcie kreatora wywołując wbudowaną w języku Java funkcji do zamykania finish()
+    } //
 }

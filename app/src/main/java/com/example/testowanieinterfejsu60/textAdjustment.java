@@ -10,12 +10,18 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.util.TypedValue;
 
+/**
+ * Klasa textAdjustment  służy do wyświetlania i  przeprowadzania testu “Dostosowanie Czcionki”.
+ */
 public class textAdjustment extends AppCompatActivity
 {
     Button increaseText, decreaseText, sendValue, cancelTest;
     TextView textToAdjust, displaySize;
     float sizeOfText;
     float diff=3f;
+    /**
+     * wybrany przez użytkownika rozmiar czcionki w teście “Dostosowanie Czcionki”
+     */
     int sizeOfTextInt;
     String sizeOfTextString;
 
@@ -75,7 +81,10 @@ public class textAdjustment extends AppCompatActivity
         });
     }
 
-    void fontSizeDecrease() //funkcja zmniejszająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
+    /**
+     * funkcja zmniejszająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
+     */
+    void fontSizeDecrease() //
     {
         sizeOfText=textToAdjust.getTextSize();
         sizeOfText = sizeOfText-diff;
@@ -86,7 +95,10 @@ public class textAdjustment extends AppCompatActivity
         displaySize.setText(sizeOfTextString);
     }
 
-    void fontSizeIncrease() //funkcja zwiększająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
+    /**
+     * funkcja zwiększająca czcionkę wyświetlanego tekstu oraz wyświetlająca aktualny wybrany rozmiar czcionki
+     */
+    void fontSizeIncrease() //
     {
         sizeOfText=textToAdjust.getTextSize();
         sizeOfText = sizeOfText+diff;
@@ -97,6 +109,9 @@ public class textAdjustment extends AppCompatActivity
         displaySize.setText(sizeOfTextString);
     }
 
+    /**
+     * funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
+     */
     void sendTextAdjust() //funkcja, która wysyła dane do bazy danych, później wyświetla okno dialogowe o zakończeniu testu wraz z przyciskiem zamykającym test “Quiz Ikon”
     {
         appDatabase myDB = new appDatabase(textAdjustment.this);
@@ -109,7 +124,10 @@ public class textAdjustment extends AppCompatActivity
                 .show();
     }
 
-    void cancelCurrentTest() //funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Dostosowanie Czcionki” lub rezygnację z zamknięcia
+    /**
+     * funkcja tworząca okno dialogowe pozwalające na zamknięcie testu “Dostosowanie Czcionki” lub rezygnację z zamknięcia
+     */
+    void cancelCurrentTest() //
     {
         new AlertDialog.Builder(this)
                 .setTitle("Anulować test?")
@@ -119,8 +137,11 @@ public class textAdjustment extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * funkcja zamykająca test “Dostosowanie Czcionki”
+     */
     void backToMain()
     {
         finish();
-    } //funkcja zamykająca test “Dostosowanie Czcionki”
+    } //
 }

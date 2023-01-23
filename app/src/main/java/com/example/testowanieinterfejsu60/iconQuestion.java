@@ -6,8 +6,14 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
+/**
+ * Klasa, która służy do przechowywania danych używanych do przeprowadzania quizu “Quiz Ikon”.
+ */
 public class iconQuestion
 {
+    /**
+     * tablica jednowymiarowa przechowująca nazwy plików graficznych przedstawiające ikonki używane w quizie
+     */
     public static int image[]= {R.drawable.ic_baseline_info_quiz_24,
             R.drawable.ic_baseline_home_quiz_24,
             R.drawable.ic_baseline_settings_quiz_24,
@@ -19,9 +25,13 @@ public class iconQuestion
             R.drawable.ic_baseline_save_quiz_24,
             R.drawable.ic_baseline_location_quiz_24
     };
-
+    /**
+     * zmienna przechowująca domyślną treść pytań w quizie
+     */
     public static String question="Co przedstawia następująca ikonka";
-
+    /**
+     * tablica dwuwymiarowa przechowująca wyświetlane odpowiedzi podczas każdego pytania quizu
+     */
     public static String answers[][]=
             {
                       {"Lista aplikacji","Przycisk domowy","Informacje"},
@@ -35,7 +45,9 @@ public class iconQuestion
                       {"Zapisz","Menedżer plików","Galeria"},
                       {"Przypnij","Mapy","Lokalizacja"}
             };
-
+    /**
+     * tablica jednowymiarowa przechowująca właściwą odpowiedź do każdego pytania z quizu
+     */
     public static String answersCorrect[]=
             {
                     "Informacje",

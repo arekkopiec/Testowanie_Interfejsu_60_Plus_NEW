@@ -22,9 +22,16 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Klasa mainActivity służy do wyświetlania strony głównej aplikacji w, której wyświetlane są przyciski uruchamiające testy, kreator profilu oraz
+ * generator raportu z bazy danych.
+ */
 public class MainActivity extends AppCompatActivity {
     CardView modifyProfile, iconQuiz,textAdjust,colorPick,buttonPick,finishTesting;
     Button createReport, closeApp;
+    /**
+     * zmienna logiczna określająca czy został w danej sesji stworzony profil co jest konieczne, aby uzyskać dostęp do uruchomienia testów
+     */
     public boolean wasAProfileCreated=false;
 
     public static final String SHARED_PREFERENCE = "sharedPref";
@@ -156,42 +163,63 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * funkcja uruchamiająca kreator profilu
+     */
     void openProfile() //funkcja uruchamiająca kreator profilu
     {
         Intent intent=new Intent(MainActivity.this,makeProfile.class);
         startActivity(intent);
     }
 
+    /**
+     * funkcja uruchamiająca test “Quiz Ikon”
+     */
     void openIconQuiz() //funkcja uruchamiająca test “Quiz Ikon”
     {
         Intent intent=new Intent(MainActivity.this,iconQuiz.class);
         startActivity(intent);
     }
 
+    /**
+     * funkcja uruchamiająca test “Dostosowywanie Czcionki”
+     */
     void openTextAdjustment() //funkcja uruchamiająca test “Dostosowywanie Czcionki”
     {
         Intent intent=new Intent(MainActivity.this,textAdjustment.class);
         startActivity(intent);
     }
 
+    /**
+     * funkcja uruchamiająca test “Kolorystyka”
+     */
     void openColorPick() //funkcja uruchamiająca test “Kolorystyka”
     {
         Intent intent=new Intent(MainActivity.this,colorPick.class);
         startActivity(intent);
     }
 
+    /**
+     * funkcja uruchamiająca test “Wybór Przycisku”
+     */
     void openButtonPick() //funkcja uruchamiająca test “Wybór Przycisku”
     {
         Intent intent=new Intent(MainActivity.this,buttonPick.class);
         startActivity(intent);
     }
 
+    /**
+     * funkcja tworząca nową zmienną typu appDatabase do obsługi danych zapisanych w bazie  danych oraz wywołanie wewnętrznej funkcji  do tworzenia raportu z bazy danych
+     */
     void generateReportFromDatabase() //funkcja tworząca nową zmienną typu appDatabase do obsługi danych zapisanych w bazie  danych oraz wywołanie wewnętrznej funkcji  do tworzenia raportu z bazy danych
     {
         appDatabase myDB = new appDatabase(MainActivity.this);
         myDB.generateReportFromDB();
     }
 
+    /**
+     * funkcja tworząca okno dialogowe pozwalające na zamknięcie aplikacji lub rezygnacji z zamknięcia. Do zamknięcia aplikacji wykorzystywana jest wbudowana w języku Java funkcja finish()
+     */
     void closeApp() //funkcja tworząca okno dialogowe pozwalające na zamknięcie aplikacji lub rezygnacji z zamknięcia. Do zamknięcia aplikacji wykorzystywana jest wbudowana w języku Java funkcja finish()
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
@@ -206,6 +234,9 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem do zamknięcia okna
+     */
     void instructionMessage() //funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem do zamknięcia okna
     {
         new AlertDialog.Builder(this)
@@ -215,6 +246,9 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem otwierającym okno kreatora profilu
+     */
     void noProfileCreated() //funkcja tworząca okno dialogowe z wiadomością tekstową oraz przyciskiem otwierającym okno kreatora profilu
     {
         new AlertDialog.Builder(this)
@@ -223,6 +257,9 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * funkcja uruchamiająca kreator profilu
+     */
     void forcedProfile() //funkcja uruchamiająca kreator profilu
     {
         wasAProfileCreated=true;
@@ -230,6 +267,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * funkcja tworząca okno dialogowe z wiadomością tekstową z przyciskiem wywołującym kolejne okno dialogowe z wiadomością tekstową
+     */
     void thankYouMessage() //funkcja tworząca okno dialogowe z wiadomością tekstową z przyciskiem wywołującym kolejne okno dialogowe z wiadomością tekstową
     {
         new AlertDialog.Builder(this)
@@ -239,6 +279,9 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * funkcja ustawiająca informację, że profil nie został utworzony oraz otwierająca okno dialogowe
+     */
     void closeProfile() //funkcja ustawiająca informację, że profil nie został utworzony oraz otwierająca okno dialogowe
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
@@ -249,12 +292,18 @@ public class MainActivity extends AppCompatActivity {
         thankYouMessage();
     }
 
+    /**
+     * funkcja wczytująca obecny stan profilu do zmiennej wasAProfileCreated
+     */
     void loadProfileState() //funkcja wczytująca obecny stan profilu do zmiennej wasAProfileCreated
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
         wasAProfileCreated = sharedPreferences.getBoolean(isCreated, false);
     }
 
+    /**
+     * funkcja resetująca stan profilu na nie utworzony przy uruchomieniu aplikacji
+     */
     void resetOnOpen()
     {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);

@@ -3,31 +3,30 @@ package com.example.testowanieinterfejsu60;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.app.AlertDialog;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-
+/**
+ * Klasa buttonPick służy do wyświetlania i przeprowadzania testu “Wybór Przycisku”.
+ */
 public class buttonPick extends AppCompatActivity
 {
     LinearLayout chosenA, chosenB;
     Button cancelTest, sendValue;
     Button optionA, optionB;
 
+    /**
+     * zmienna określająca na, którym etapie testu “Wybór Przycisku” znajduje się użytkownik
+     */
     int currentPair=0;
     int numberOfPairs=(buttonPickClass.numberOfChoices);
+    /**
+     * tablica przechowująca wybory użytkownika dokonane podczas testu “Wybór Przycisku”
+     */
     int chosenButton[]=new int[numberOfPairs];
     boolean isSomethingChosen=false;
 
